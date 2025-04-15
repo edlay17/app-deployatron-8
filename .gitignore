@@ -1,0 +1,5 @@
+api/node_modules
+api/static
+app/dist
+app/node_modules
+app/
