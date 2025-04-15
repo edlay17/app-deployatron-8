@@ -6,9 +6,9 @@ const app = express();
 const https = require('https');
 
 const sslOptions = {
-  key: fs.readFileSync('/root/.acme.sh/api.3deploy.shop_ecc/api.3deploy.shop.key'), // Приватный ключ
-  cert: fs.readFileSync('/root/.acme.sh/api.3deploy.shop_ecc/api.3deploy.shop.cer'), // Сертификат
-  ca: fs.readFileSync('/root/.acme.sh/api.3deploy.shop_ecc/ca.cer'), // Промежуточный сертификат
+  key: fs.readFileSync('/root/.acme.sh/api.3deploy.shop_ecc/api.3deploy.shop.key'),
+  cert: fs.readFileSync('/root/.acme.sh/api.3deploy.shop_ecc/api.3deploy.shop.cer'),
+  ca: fs.readFileSync('/root/.acme.sh/api.3deploy.shop_ecc/ca.cer'),
 };
 
 app.use(cors());
