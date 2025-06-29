@@ -9,24 +9,20 @@ on:
 jobs:
   api-eslint:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./api
     steps:
-      - uses:  actions/checkout@v2
+      - uses: actions/setup-node@v4
       - name: Install NVM
         env: 
-          NOVE_VERSION: 14.17.0
-        run: |
-          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-          export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-          nvm install $NODE_VERSION
-          nvm use $NODE_VERSION
-          node -v
+          NODE_VERSION: 14.17.0
+        with:
+          node-version: $NODE_VERSION
+          cache: 'npm'
       - name: Install dependencies
-        working-directory: ./api
-        run: npm install
+        run: npm ci
       - name: Show Hello World
-        working-directory: ./api
         run: npm run hello-world
       - name: Lint source code with eslint
-        working-directory: ./api
         run: npm run lint
