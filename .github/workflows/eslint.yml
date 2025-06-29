@@ -14,7 +14,6 @@ jobs:
         working-directory: ./api
     steps:
       - uses: actions/setup-node@v4
-      - name: Install NVM
         env: 
           NODE_VERSION: 14.17.0
         with:
