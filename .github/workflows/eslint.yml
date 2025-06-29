@@ -12,17 +12,15 @@ jobs:
     steps:
       - uses:  actions/checkout@v2
       - name: Install NVM
+        env: 
+          NOVE_VERSION: 14.17.0
         run: |
           curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
           export NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-          nvm install 14.17.0
-          nvm use 14.17.0
+          nvm install $NODE_VERSION
+          nvm use $NODE_VERSION
           node -v
-      - name: Install Node.jobs
-        env: 
-          NOVE_VERSION: 14.17.0
-        run: nvm install $NODE_VERSION
       - name: Install dependencies
         working-directory: ./api
         run: npm install
