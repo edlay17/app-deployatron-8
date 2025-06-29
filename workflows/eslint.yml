@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  eslint:
+  api-eslint:
     runs-on: ubuntu-latest
     steps:
       - uses:  actions/checkout@v2
@@ -18,8 +18,11 @@ jobs:
           NOVE_VERSION: 14.17.0
         run: nvm install $NODE_VERSION
       - name: Install dependencies
+        working-directory: ./api
         run: npm install
       - name: Show Hello World
+        working-directory: ./api
         run: npm run hello-world
       - name: Lint source code with eslint
+        working-directory: ./api
         run: npm run lint
