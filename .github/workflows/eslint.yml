@@ -16,12 +16,12 @@ jobs:
       NODE_VERSION: 14.17.0
     steps:
       - uses: actions/checkout@v4
+      - name: Show repo files
+        run: ls -la
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-      - name: Show repo files
-        run: ls -la
       - name: Install dependencies
         run: npm ci
       - name: Show Hello World
