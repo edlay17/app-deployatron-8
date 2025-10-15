@@ -13,7 +13,7 @@ jobs:
       run:
         working-directory: ./api
     env: 
-      NODE_VERSION: 14.17.0
+      NODE_VERSION: 18.19.1
     steps:
       - uses: actions/checkout@v4
       - name: Show repo files
